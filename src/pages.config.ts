@@ -75,7 +75,7 @@ export const pagesConfig = {
     title: 'Decisions - Architectural & Technical Choices',
     description: 'A log of architectural and technical decisions, documenting the context, alternatives considered, and reasoning behind key engineering choices.',
     heading: 'Decisions',
-    intro: 'The choices behind the case studies: the context, the options I considered, and why I picked the one I did.',
+    intro: 'How I make decisions, and the individual choices behind the case studies: the context, the options I turned down, and why I picked the one I did.',
   },
   
   /**

@@ -1,0 +1,19 @@
+---
+title: "Score with a rubric, not a classifier"
+date: 2025-03-01
+context: "ZTM needed to match candidates to roles. There was no large labelled outcome dataset, and past hiring decisions carry the bias of the people who made them."
+decision: "Build a five-dimension weighted scoring engine and design the fairness controls into it, instead of training a classifier."
+alternatives:
+  - option: "A classifier trained on historical hiring outcomes"
+    pros:
+      - "Learns patterns automatically"
+    cons:
+      - "Would replicate historical hiring bias"
+      - "Needs labelled outcomes that did not exist at scale"
+reasoning: "A model I can explain, audit and correct is worth more here than one that scores slightly better on a metric nobody can verify. Fairness and an audit trail were requirements, not extras."
+tags:
+  - "fairness"
+  - "architecture"
+relatedProjects:
+  - "ztm-matching-engine"
+---

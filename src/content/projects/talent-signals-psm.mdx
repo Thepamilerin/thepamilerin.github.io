@@ -1,0 +1,35 @@
+---
+title: "Which talent signals predict financial outperformance?"
+role: "Data Scientist"
+year: 2025
+duration: "Zeki Data"
+outcomeSummary: "Cut investment due diligence from weeks to days for VC and PE clients"
+overview: "A propensity score matching framework evaluating organisational health across more than 1,500 tech companies in cybersecurity, biotech and defence."
+problem: "Investors wanted to know whether the way a company hires and retains people says anything about how it will perform financially, and which signals matter in which sector."
+constraints:
+  - "Three sectors with different baselines, so one pooled comparison would mislead"
+  - "Companies cannot be randomly assigned a talent profile, so the comparison needs matching"
+approach: "Built a propensity score matching framework so that companies with a given talent signal are compared with similar companies without it, within each sector, isolating the signals that go with financial outperformance."
+keyDecisions:
+  - decision: "Match within each sector"
+    reasoning: "Talent signals and financial performance both vary by sector, so matching inside each one keeps sector from being mistaken for a signal."
+    alternatives:
+      - "One pooled comparison across all companies"
+techStack:
+  - "Python"
+  - "Propensity score matching"
+impact:
+  metrics:
+    - label: "Companies evaluated"
+      value: "1,500+"
+    - label: "Sectors"
+      value: "Cybersecurity, biotech, defence"
+    - label: "Due diligence"
+      value: "Weeks cut to days"
+  qualitative: "Used by VC and PE clients managing billions in assets."
+learnings:
+  - "Matching is only as good as the covariates you match on, so the sector split mattered more than the model"
+featured: false
+status: ongoing
+order: 5
+---

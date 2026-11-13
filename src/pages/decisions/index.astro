@@ -64,6 +64,46 @@ const totalDecisions = sortedDecisions.length;
       <PageStats text={`${totalDecisions} decisions documented`} />
     </header>
 
+    <section id="how" class="how">
+      <h2>How I make decisions</h2>
+      <p class="how-intro">
+        The same few habits show up in every case study. Each one links to a place where it changed the answer.
+      </p>
+      <ol class="how-list">
+        <li>
+          <h3>Start with what it is for</h3>
+          <p>Before any modelling I write down who will use the output and what a wrong answer would cost them. That decides how simple the method should be and how sure I need to be.</p>
+          <a href="/projects/ztm-matching-engine">A scoring engine, not a classifier</a>
+        </li>
+        <li>
+          <h3>Set the rule before the result</h3>
+          <p>I fix what would make me ship, hold or stop before I look at the numbers, so the data cannot bend the decision.</p>
+          <a href="/decisions/hold-at-control">Hold at control, with the caveat attached</a>
+        </li>
+        <li>
+          <h3>Trust evidence of cause over fit</h3>
+          <p>A model can fit history well and still be wrong about what a channel does. Where an experiment exists, the model has to agree with it.</p>
+          <a href="/decisions/calibrate-to-the-experiments">Calibrate to the experiments</a>
+        </li>
+        <li>
+          <h3>Judge on what the business keeps</h3>
+          <p>Revenue is easy to count and easy to misread. I score options on the outcome the business will actually feel, such as profit after margin.</p>
+          <a href="/decisions/judge-plans-on-profit">Judge plans on profit</a>
+        </li>
+        <li>
+          <h3>Check the data before the result</h3>
+          <p>When something looks surprising I assume the data first: a definition, a unit, a broken split. Most surprises end there.</p>
+          <a href="/decisions/outlier-is-definitional">Treat the outlier as definitional</a>
+        </li>
+        <li>
+          <h3>Say how sure I am, and what would settle it</h3>
+          <p>Where the data cannot separate two explanations I report both and name the test that would. That is more useful to a client than a confident guess.</p>
+          <a href="/decisions/two-models-not-one">Run two models and report both</a>
+        </li>
+      </ol>
+      <p class="how-outro">Below are the individual decisions, each with the context, the options I turned down and the reasoning.</p>
+    </section>
+
     {sortedDecisions.length > 0 ? (
       <div class="card-list card-list--compact">
         {sortedDecisions.map((decision) => (
@@ -81,3 +121,17 @@ const totalDecisions = sortedDecisions.length;
     )}
   </main>
 </BaseLayout>
+
+  <style>
+    .how { margin-bottom: 3.5rem; scroll-margin-top: 5rem; }
+    .how h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .how-intro, .how-outro { color: var(--color-text-secondary); max-width: 60ch; }
+    .how-outro { margin-top: 2rem; }
+    .how-list { list-style: none; counter-reset: how; padding: 0; margin: 1.75rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem 2rem; }
+    .how-list li { counter-increment: how; border-top: 1px solid var(--color-border); padding-top: 1rem; }
+    .how-list li::before { content: counter(how); display: block; font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.25rem; }
+    .how-list h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .how-list p { color: var(--color-text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .how-list a { font-size: 0.9rem; color: var(--color-text); }
+  </style>
+

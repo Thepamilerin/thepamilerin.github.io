@@ -1,0 +1,46 @@
+---
+title: "A scoring engine, not a classifier"
+role: "Designer and builder"
+year: 2025
+duration: "Zeki Data, end to end"
+outcomeSummary: "A matching engine built to avoid copying historical hiring bias, independently audited across 15 protected characteristics"
+overview: "The rubric-based matching engine behind ZTM at Zeki Data: a five-dimension weighted scoring system with fairness controls designed into it from the start."
+problem: "A model trained on past hiring decisions learns the bias in them, and there was no large labelled outcome dataset to train one on anyway. The engine had to be fair by construction and hold up under regulatory scrutiny."
+constraints:
+  - "No large labelled outcome dataset"
+  - "A classifier would replicate historical hiring bias"
+  - "The audit trail had to hold up under UK GDPR, the EU AI Act and other regimes"
+approach: "Chose a weighted scoring architecture across five dimensions over a trained classifier. Built bias mitigation into the system itself: signals that could carry bias are scrubbed at the gateway, an evidence-tiering model stops unverified claims scoring the same as demonstrated outcomes, and a three-layer fairness framework was audited independently."
+keyDecisions:
+  - decision: "Use a rubric-based scoring engine instead of a classifier"
+    reasoning: "It avoids replicating historical hiring bias and works without a large labelled outcome dataset. Every score can also be explained to the person it affects."
+    alternatives:
+      - "A classifier trained on past hiring outcomes"
+  - decision: "Scrub biased signals at the gateway"
+    reasoning: "Removing them before scoring means no later stage can use them, which is easier to audit than trying to correct for them afterwards."
+  - decision: "Tier evidence by how well it is verified"
+    reasoning: "A claim nobody has checked should not score the same as an outcome someone has demonstrated."
+  - decision: "Have the fairness framework audited independently"
+    reasoning: "A system that grades its own fairness proves little. An outside audit gives the result weight."
+techStack:
+  - "Scoring methodology"
+  - "Fairness auditing"
+  - "Regulatory mapping"
+impact:
+  metrics:
+    - label: "Scoring dimensions"
+      value: "5, weighted"
+    - label: "Independent fairness audit"
+      value: "15 protected characteristics"
+    - label: "Regulatory regimes mapped"
+      value: "6, including UK GDPR and the EU AI Act"
+  qualitative: "The system can show how any score was reached and what evidence supports it, which is what an audit asks for."
+learnings:
+  - "When there are no reliable labels, a method you can explain beats one you can only validate"
+  - "Fairness is cheaper to design in than to audit in later"
+featured: true
+status: ongoing
+order: 2
+relatedDecisions:
+  - "scoring-over-classifier"
+---

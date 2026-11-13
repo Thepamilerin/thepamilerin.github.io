@@ -37,6 +37,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SEO from '../components/SEO.astro';
 import StructuredData from '../components/StructuredData.astro';
 import ForwardLink from '../components/ForwardLink.astro';
+import Testimonials from '../components/Testimonials.astro';
 import { getCollection } from 'astro:content';
 import { siteConfig } from '../config';
 
@@ -50,7 +51,7 @@ const allProjects = await getCollection('projects');
 const featuredProjects = allProjects
   .filter(project => project.data.featured === true)
   .sort((a, b) => (a.data.order || 999) - (b.data.order || 999))
-  .slice(0, 3);
+  .slice(0, 4);
 
 /**
  * Case snapshots for hero display
@@ -58,7 +59,7 @@ const featuredProjects = allProjects
  * Takes up to 3 featured projects to showcase in the hero section,
  * providing immediate evidence of impact and outcomes.
  */
-const caseSnapshots = featuredProjects.slice(0, 3);
+const caseSnapshots = featuredProjects.slice(0, 4);
 
 /**
  * Queries recent decisions for preview section
@@ -102,8 +103,8 @@ const recentDecisions = allDecisions
             {siteConfig.author.name} · {siteConfig.author.title}
           </p>
           <div class="hero-cta">
-            <a href="/projects" class="btn-primary">Read the case studies</a>
-            <a href="/decisions" class="btn-secondary">The decisions behind them</a>
+            <a href="/projects" class="btn-primary">Explore case studies</a>
+            <a href="/decisions#how" class="btn-secondary">How I make decisions</a>
           </div>
         </div>
 
@@ -125,7 +126,7 @@ const recentDecisions = allDecisions
     <!-- Introduction -->
     <section class="introduction">
       <p>
-        I'm {siteConfig.author.name}, a data scientist in London. I lead the analysis behind Zeki Data's State of AI Talent, and I'm a named contributor to the Stanford AI Index 2026.
+        I'm {siteConfig.author.name}, a data scientist in London. At Zeki Data I lead the data and AI strategy for ZTM, and I'm a named contributor to the Stanford AI Index 2026.
       </p>
       <p>
         I work on the part between a messy dataset and a decision someone has to make. I start with what the model is for and what happens if it is wrong, and I say how sure I am.
@@ -159,11 +160,14 @@ const recentDecisions = allDecisions
       )}
     </section>
 
+    <!-- Testimonials -->
+    <Testimonials limit={3} title="What people say" />
+
     <!-- What I Think About -->
     <section class="thinking">
       <h2>What I work on</h2>
       <p class="thinking-list">
-        Forecasting and scoring methodology · Marketing and media mix modelling · Pipelines on tens of millions of records, including deduplication, schema evolution and late-arriving data · A/B testing and behavioural segmentation, including pre-registration, power, peeking and segment effects · Python and SQL
+        Forecasting and scoring methodology · Causal inference and media mix modelling · Pipelines on tens of millions of records, including deduplication, schema evolution and late-arriving data · A/B testing and behavioural segmentation, including pre-registration, power, peeking and segment effects · Python and SQL
       </p>
     </section>
 

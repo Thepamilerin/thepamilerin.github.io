@@ -77,7 +77,7 @@ const featuredTestimonials = allTestimonials
               ) : (
                 testimonial.data.name
               )}
-              <span class="author-role">, {testimonial.data.role} at {testimonial.data.company}</span>
+              <span class="author-role">, {testimonial.data.role}{testimonial.data.company ? ` at ${testimonial.data.company}` : ''}</span>
             </cite>
             <span class="testimonial-relationship">{testimonial.data.relationship}</span>
           </footer>
