@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" font-family="Inter, Arial, sans-serif" font-size="12">
+<line x1="198.2" x2="198.2" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="198.2" y="316" text-anchor="middle" fill="#8a8f98">£0.5</text>
+<line x1="276.4" x2="276.4" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="276.4" y="316" text-anchor="middle" fill="#8a8f98">£1</text>
+<line x1="354.5" x2="354.5" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="354.5" y="316" text-anchor="middle" fill="#8a8f98">£2</text>
+<line x1="457.9" x2="457.9" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="457.9" y="316" text-anchor="middle" fill="#8a8f98">£5</text>
+<line x1="536.1" x2="536.1" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="536.1" y="316" text-anchor="middle" fill="#8a8f98">£10</text>
+<line x1="614.3" x2="614.3" y1="22" y2="300" stroke="#8a8f9855"/>
+<text x="614.3" y="316" text-anchor="middle" fill="#8a8f98">£20</text>
+<text x="110" y="49.0" text-anchor="end" fill="#8a8f98" font-size="13">Digital audio</text>
+<line x1="368.3" x2="626.0" y1="45.0" y2="45.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="547.9" cy="45.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="79.0" text-anchor="end" fill="#8a8f98" font-size="13">Affiliates</text>
+<line x1="453.3" x2="587.5" y1="75.0" y2="75.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="537.2" cy="75.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="109.0" text-anchor="end" fill="#8a8f98" font-size="13">Programmatic</text>
+<line x1="120.0" x2="566.2" y1="105.0" y2="105.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="446.3" cy="105.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="139.0" text-anchor="end" fill="#8a8f98" font-size="13">Paid social</text>
+<line x1="360.1" x2="459.7" y1="135.0" y2="135.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="419.0" cy="135.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="169.0" text-anchor="end" fill="#8a8f98" font-size="13">Generic search</text>
+<line x1="317.5" x2="463.8" y1="165.0" y2="165.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="406.5" cy="165.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="199.0" text-anchor="end" fill="#8a8f98" font-size="13">Online video</text>
+<line x1="338.2" x2="422.4" y1="195.0" y2="195.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="386.7" cy="195.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="229.0" text-anchor="end" fill="#8a8f98" font-size="13">Brand search</text>
+<line x1="164.2" x2="451.4" y1="225.0" y2="225.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="372.3" cy="225.0" r="4.5" fill="#4f8fbf"/>
+<text x="110" y="259.0" text-anchor="end" fill="#8a8f98" font-size="13" font-weight="700">TV</text>
+<line x1="312.7" x2="342.0" y1="255.0" y2="255.0" stroke="#4f8fbf88" stroke-width="5" stroke-linecap="round"/>
+<circle cx="328.7" cy="255.0" r="6" fill="#4f8fbf"/>
+<text x="110" y="289.0" text-anchor="end" fill="#8a8f98" font-size="13">Radio</text>
+<line x1="147.8" x2="299.7" y1="285.0" y2="285.0" stroke="#4f8fbf88" stroke-width="3" stroke-linecap="round"/>
+<circle cx="240.9" cy="285.0" r="4.5" fill="#4f8fbf"/>
+<line x1="334.2" x2="334.2" y1="22" y2="300" stroke="#e0793a" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="340.2" y="18" fill="#e0793a" font-weight="600">Break-even £1.67</text>
+<text x="390.0" y="338" text-anchor="middle" fill="#8a8f98">Revenue per £1 of media, main model, 90% range, log scale</text></svg>

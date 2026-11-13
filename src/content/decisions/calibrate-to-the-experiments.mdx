@@ -1,0 +1,23 @@
+---
+title: "Calibrate the model to the two experiments"
+date: 2026-10-28
+context: "Sales data alone could not separate TV from seasonality and growth, and the platform reports disagreed with each other. A TV geo trial and a Meta lift study existed."
+decision: "Use both experiments as priors and test the finished model against each of them independently."
+alternatives:
+  - option: "Trust the sales data alone"
+    pros:
+      - "Simplest to explain"
+    cons:
+      - "TV looked like it returned £0.92 once the VAT error was left in"
+  - option: "Use platform-reported attribution"
+    pros:
+      - "Already available"
+    cons:
+      - "The platforms credit themselves and disagree with each other"
+reasoning: "The experiments are the only direct evidence of cause in the data. A model that agrees with them is worth more than one that fits the sales history slightly better."
+tags:
+  - "modelling"
+  - "experiments"
+relatedProjects:
+  - "media-mix-model"
+---

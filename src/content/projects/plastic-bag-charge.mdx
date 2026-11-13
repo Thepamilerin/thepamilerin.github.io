@@ -1,0 +1,42 @@
+---
+title: "Did the plastic bag charge actually work?"
+role: "Independent analysis"
+year: 2025
+duration: "Defra data, 2016-17 to 2024-25"
+outcomeSummary: "The charge cut bags per person by 81%, but the doubling to 10p added almost nothing, and the public data cannot say whether people switched to another bag"
+overview: "A statistical analysis of nine years of Defra data on single-use plastic carrier bags in England. The headline says the charge worked. The data says something more interesting."
+problem: "England introduced a 5p charge in 2015 and doubled it to 10p in May 2021, extending it to all retailers. The headline result is a drop of about 95% at the large supermarkets in the first year. The question is what the nine years of published data support beyond that headline."
+constraints:
+  - "Defra's data measures compliance with the charge, not environmental outcome"
+  - "Bag-for-life figures are reported voluntarily, so they depend on which retailers chose to report in which year"
+  - "Retailers that stop selling single-use bags leave the dataset entirely"
+approach: "Rebuilt per-person figures from Defra and ONS population estimates, looked at the 2021 increase as a before-and-after, compared the seven main retailers like for like, and checked what the metadata said about each outlier before interpreting it."
+keyDecisions:
+  - decision: "Treat the one retailer that barely moved as a definitional problem, not a behavioural one"
+    reasoning: "Its figures were repeatedly revised upward to include compostable bags that other retailers leave out of their returns. A naive ranking of supermarkets by plastic would have drawn exactly the wrong conclusion."
+    alternatives:
+      - "Rank retailers on the reported numbers"
+  - decision: "Report what the dataset cannot answer as a finding"
+    reasoning: "Whether people switched to bags-for-life is the question that matters environmentally, and reported bag-for-life sales fall from 132 million to zero, which is a reporting artefact, not a collapse in behaviour. Saying the data cannot answer it is more useful than a guess."
+techStack:
+  - "Python"
+  - "pandas"
+  - "Statistical analysis"
+impact:
+  metrics:
+    - label: "Bags per person"
+      value: "38 in 2016-17 to 7 to 8 by 2020-21, an 81% drop"
+    - label: "Around the 10p increase"
+      value: "8.6 the year before, then 8.8, 7.7, 7.1 and 7.6, with no visible step down"
+    - label: "Main retailers' share of bags"
+      value: "63% in 2016-17, 38% in 2024-25, with Tesco, M&S and Waitrose selling none"
+  qualitative: "The first 5p did the heavy lifting and the doubling added little. The claim that the charge saved a given tonnage of plastic reaches beyond what the public data supports."
+learnings:
+  - "When one entity diverges sharply from its peers, the explanation is usually definitional"
+  - "A dataset built to monitor compliance cannot be stretched to answer an outcome question"
+featured: true
+status: completed
+order: 2
+---
+
+Full analysis with charts: [Did the plastic bag charge actually work?](https://thepamilerin.github.io/react-portfolio-template/#/analysis/plastic-bag-charge). Data: Defra, single-use plastic carrier bags charge data for England, 2016-17 to 2024-25, with population figures from ONS. Open Government Licence 3.0.

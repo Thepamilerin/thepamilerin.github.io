@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: withastro/action@v3
+        env:
+          SITE_URL: https://thepamilerin.github.io
+          SITE_LANGUAGE: en-GB
+          SITE_TITLE: Khalifa Banji
+          SITE_DESCRIPTION: Applied data scientist in London. Forecasting models, scoring engines and analytical products, written up as case studies.
+          SITE_AUTHOR_NAME: Khalifa Banji
+          SITE_AUTHOR_TITLE: Data Scientist
+          SITE_AUTHOR_BIO: Applied data scientist. I build forecasting models, scoring engines and analytical products that ship to real users.
+          SITE_AUTHOR_EMAIL: thekhalifabanji@gmail.com
+          SITE_AUTHOR_LOCATION: London
+          SOCIAL_GITHUB: https://github.com/Thepamilerin
+          SOCIAL_LINKEDIN: https://www.linkedin.com/in/thekhalifabanji/
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

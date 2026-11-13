@@ -1,0 +1,65 @@
+---
+title: "Where should a retailer put £6.5m of media?"
+role: "Sole analyst"
+year: 2026
+duration: "Hiring exercise, client anonymised"
+teamSize: 1
+outcomeSummary: "Showed that more TV would lose about £0.5m of profit, and that spending 15% less would gain about £0.3m"
+overview: "A weekly Bayesian model of nine paid channels, calibrated to a TV geo trial and a Meta lift study, used to test three competing plans and to find a better split of the same budget."
+problem: "The CMO wanted TV raised to £2.5m, the performance lead wanted programmatic and video moved into brand search and affiliates, and the head of brand wanted radio stopped. Platform reports and last-click data disagreed with each other. At a 60% gross margin a channel has to return £1.67 of revenue per £1 to break even, and nobody could say which plans cleared that."
+constraints:
+  - "Weekly data only, with errors in the raw files: VAT in older revenue, radio spend in £000 for part of the period, a change of programmatic partner, and duplicate and missing weeks"
+  - "Brand search and affiliates mostly capture demand that would arrive anyway, and sales data cannot say how much"
+  - "Two real experiments existed, a TV geo trial and a Meta lift study, and the model had to be consistent with both"
+approach: "Audited the four raw files before fitting anything and fixed each issue in code. Fitted a Bayesian model with geometric adstock, saturating response curves, seasonality, price, promotion and event controls, with channel effects that cannot be negative. Set priors from the two experiments, then searched channel spend multipliers for the most profit across all posterior draws, with limits on how far any channel could move."
+keyDecisions:
+  - decision: "Calibrate the model to the two experiments"
+    reasoning: "The TV trial and the lift study are the only direct evidence of cause in the data. Without them, leaving the VAT error in made TV look like it returned £0.92 rather than £1.59."
+    alternatives:
+      - "Trust the sales data alone"
+      - "Use the platform's own attribution"
+  - decision: "Run two models and report both"
+    reasoning: "The main model shrinks the effect of brand search and affiliates. The alternative leaves them unlimited, which makes media explain about 105% of revenue, so it is an upper bound. Where they agree the advice is firm. Where they disagree it is a test to run, not a decision to make."
+    alternatives:
+      - "One model with a single best guess"
+  - decision: "Judge every plan on profit, not revenue"
+    reasoning: "A plan can lose revenue and still make money if it saves more spend than it loses in margin. That is what happened with the 15% cut."
+    alternatives:
+      - "Rank plans by revenue or by average return"
+  - decision: "Reverse each data decision to see what it moved"
+    reasoning: "Every cleaning choice is an assumption. Undoing them one at a time showed which ones the conclusions depended on."
+techStack:
+  - "Python"
+  - "PyMC"
+  - "NumPy"
+  - "pandas"
+  - "SciPy"
+impact:
+  metrics:
+    - label: "TV return per £1"
+      value: "£1.59 (range £1.38 to £1.79), just under the £1.67 break-even"
+    - label: "CMO plan: TV to £2.5m"
+      value: "−£0.51m profit in the main model, range excludes zero"
+    - label: "Re-split a flat £6.5m"
+      value: "+£0.17m profit, 85% chance of beating today"
+    - label: "Spend 15% less"
+      value: "−£1.17m revenue, +£0.29m profit, 96% chance of beating today"
+    - label: "Holdout error"
+      value: "4.2 to 4.9% on three rolling 13-week holdouts, against 8.5 to 15.4% for a simple benchmark"
+  qualitative: "Brand search and affiliates cannot be identified from sales data: affiliates return about £10 per £1 in one model and £29 in the other. The performance lead's plan only works if the second model is right, so it needs a holdout test before any money moves."
+learnings:
+  - "A smaller budget can earn more profit, because the money saved is worth more than the margin lost"
+  - "When a model cannot separate two explanations, say so, and give the client a test that can"
+  - "Spend beyond today's range is extrapolation, so the CMO's loss at 1.75 times current TV spend is an estimate of direction, not size"
+featured: true
+status: completed
+order: 1
+relatedDecisions:
+  - "calibrate-to-the-experiments"
+  - "two-models-not-one"
+  - "judge-plans-on-profit"
+---
+
+![Revenue per pound of media by channel, with 90% ranges and the £1.67 break-even line](/media-mix-returns.svg)
+
+TV has the narrowest range because the geo trial and the model agree. Audio, affiliates, programmatic and brand search are wide: the data cannot separate them from demand that would have arrived anyway.

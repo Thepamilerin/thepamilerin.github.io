@@ -1,0 +1,39 @@
+---
+title: "Onboarding friction A/B test"
+role: "Independent analysis"
+year: 2025
+duration: "Public dataset (Cookie Cats, Kaggle)"
+outcomeSummary: "Recommended holding at the current design, with a sample ratio mismatch flagged for engineering before any follow-up"
+overview: "An end-to-end analysis of a two-arm test on 90,189 users: whether moving the first friction point from step 30 to step 40 of onboarding changes retention."
+problem: "The hypothesis was that earlier friction filters out uncommitted users and raises long-term retention among those who stay. The decision rule was to ship only if day-7 retention improves and total engagement holds."
+constraints:
+  - "Public data, so assignment cannot be audited at source"
+  - "Segments are defined by engagement after the fact, so they need a multiple-comparison correction"
+approach: "Powered the test for a one percentage point effect before looking at results, checked the split for sample ratio mismatch, then ran a two-proportion z-test with Wilson intervals alongside a Beta-Binomial Bayesian model. Broke results down by casual, core and power users with a Bonferroni correction."
+keyDecisions:
+  - decision: "Check randomisation before reading the result"
+    reasoning: "A broken split makes every later number untrustworthy. The check found a mild mismatch (49.6% against 50.4%, p = 0.009), so the result is reported as directionally valid with a flag, not as clean."
+    alternatives:
+      - "Go straight to the retention comparison"
+  - decision: "Fix the decision rule before the analysis"
+    reasoning: "Ship only if day-7 retention improves and the guardrail holds. A rule set in advance cannot be bent by what the data shows."
+techStack:
+  - "Python"
+  - "SciPy"
+  - "Bayesian inference"
+impact:
+  metrics:
+    - label: "Sample"
+      value: "90,189 users, 44,700 control and 45,489 treatment, against 38,820 needed per group"
+    - label: "Randomisation check"
+      value: "Mild mismatch, p = 0.009, flagged"
+  qualitative: "Recommendation: do not ship the later gate. Audit the cause of the mismatch, then test personalised gate placement by segment, and add a 30-day retention measure so the next test covers the full habit window."
+learnings:
+  - "A sample ratio check belongs before the results, not in a footnote"
+  - "Writing down the decision rule first keeps the recommendation honest"
+featured: false
+status: completed
+order: 3
+---
+
+Full write-up: [Onboarding friction experiment analysis](https://thepamilerin.github.io/ab-test-onboarding-analysis).
